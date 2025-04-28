@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant Browser
+    participant Server
+    Note over Browser,Server: SSL/TLS Handshake Process
+    Browser->>Server: Hello, I want to connect securely
+    Server->>Browser: Here's my SSL certificate with my public key
+    Note over Browser: Verifies certificate against trusted CAs
+    Browser->>Browser: Generates symmetric session key
+    Browser->>Server: Here's the session key (encrypted with server's public key)
+    Note over Server: Decrypts session key using its private key
+    Note over Browser,Server: Both now have the same symmetric key
+    Browser->>Server: Encrypted data using session key
+    Server->>Browser: Encrypted data using session key
