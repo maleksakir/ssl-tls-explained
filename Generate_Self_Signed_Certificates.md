@@ -124,8 +124,8 @@ subjectAltName = @alt_names
 [alt_names]
 DNS.1 = myserver.local
 DNS.2 = myserver1.local
-IP.1 = 192.168.1.1
-IP.2 = 192.168.2.1
+IP.1 = 192.168.1.10
+IP.2 = 192.168.2.11
 ```
 > ✅ SAN is required by modern browsers.
 
