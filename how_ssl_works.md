@@ -57,32 +57,7 @@ sequenceDiagram
 
 ### Symmetric vs. Asymmetric Encryption
 
-```mermaid
-graph TD
-    subgraph "Symmetric Encryption"
-        A1[Original Data] -->|Encrypt with Key| B1[Encrypted Data]
-        B1 -->|Decrypt with SAME Key| C1[Original Data]
-        D1[Same Key] -->|Used for| A1
-        D1 -->|Used for| B1
-    end
-    
-    subgraph "Asymmetric Encryption"
-        A2[Original Data] -->|Encrypt with Public Key| B2[Encrypted Data]
-        B2 -->|Decrypt with Private Key| C2[Original Data]
-        D2[Public Key] -->|Used for encryption| A2
-        E2[Private Key] -->|Used for decryption| B2
-    end
-
-    style A1 fill:#f9f,stroke:#333,stroke-width:2px
-    style C1 fill:#f9f,stroke:#333,stroke-width:2px
-    style A2 fill:#f9f,stroke:#333,stroke-width:2px
-    style C2 fill:#f9f,stroke:#333,stroke-width:2px
-    style B1 fill:#bbf,stroke:#333,stroke-width:2px
-    style B2 fill:#bbf,stroke:#333,stroke-width:2px
-    style D1 fill:#bfb,stroke:#333,stroke-width:2px
-    style D2 fill:#bfb,stroke:#333,stroke-width:2px
-    style E2 fill:#fbf,stroke:#333,stroke-width:2px
-```
+![SSL Padlock](images/Symmetric_and_Asymmetric.png)
 
 ### Symmetric Encryption
 - **One Key** is used to both encrypt and decrypt data.
