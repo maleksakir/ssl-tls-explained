@@ -37,21 +37,7 @@ SSL (Secure Sockets Layer) and its successor TLS (Transport Layer Security) solv
 
 The diagram below shows exactly what happens when you connect to a secure website:
 
-```mermaid
-sequenceDiagram
-    participant Browser
-    participant Server
-    Note over Browser,Server: SSL/TLS Handshake Process
-    Browser->>Server: Hello, I want to connect securely
-    Server->>Browser: Here's my SSL certificate with my public key
-    Note over Browser: Verifies certificate against trusted CAs
-    Browser->>Browser: Generates symmetric session key
-    Browser->>Server: Here's the session key (encrypted with server's public key)
-    Note over Server: Decrypts session key using its private key
-    Note over Browser,Server: Both now have the same symmetric key
-    Browser->>Server: Encrypted data using session key
-    Server->>Browser: Encrypted data using session key
-```
+![SSL Padlock](images/ssl-handshake.png)
 
 ## Encryption Types: The Two Approaches
 
@@ -97,27 +83,7 @@ An **SSL Certificate** is a digital file that contains:
 
 ## The Certificate Authority (CA) System
 
-```mermaid
-graph TD
-    A[Root Certificate Authority] -->|Issues certificates to| B[Intermediate CA 1]
-    A -->|Issues certificates to| C[Intermediate CA 2]
-    B -->|Issues certificate to| D[Website A]
-    B -->|Issues certificate to| E[Website B]
-    C -->|Issues certificate to| F[Website C]
-    
-    G[Your Browser] -->|Trusts| A
-    G -->|Verifies chain of trust for| D
-    G -->|Verifies chain of trust for| E
-    G -->|Verifies chain of trust for| F
-    
-    style A fill:#f9d,stroke:#333,stroke-width:2px
-    style B fill:#adf,stroke:#333,stroke-width:2px
-    style C fill:#adf,stroke:#333,stroke-width:2px
-    style D fill:#bfb,stroke:#333,stroke-width:2px
-    style E fill:#bfb,stroke:#333,stroke-width:2px
-    style F fill:#bfb,stroke:#333,stroke-width:2px
-    style G fill:#ffa,stroke:#333,stroke-width:2px
-```
+![SSL Padlock](images/ssl_Certificate_trust_chain.png)
 
 How do we know a website is genuine? This is where Certificate Authorities come in.
 
